@@ -204,6 +204,11 @@ exec_always synclient VertScrollDelta=-112
 exec_always synclient HorizScrollDeta=-112
 exec_always synclient VertEdgeScroll=0
 exec_always xinput --set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.75
+exec --no-startup-id i3-msg 'workspace $workspace4; append_layout /home/eduardo/dotfiles/.config/i3/messaging.json'
+exec telegram
+exec whatsie
+exec slack
+exec gnome-terminal
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
@@ -211,3 +216,5 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+exec --no-startup-id i3-msg workspace $workspace1
