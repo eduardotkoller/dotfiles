@@ -11,7 +11,7 @@ echo 'Installing all tools used...'
 sudo apt install fonts-font-awesome lxappearance rofi thunar zsh feh -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
-echo 'Creating symbolic links to files in this folder (i3configs, themes, icons, fonts'
+echo 'Creating symbolic links (i3 & oh-my-zsh configs) and copying files (themes, fonts, icons)'
 sudo ln -fs $_curr/.config/i3/config $HOME/.config/i3/config
 sudo ln -fs $_curr/.config/i3status/config $HOME/.config/i3status/config
 sudo ln -fs $_curr/.zshrc $HOME/.zshrc
