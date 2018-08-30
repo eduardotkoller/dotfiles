@@ -8,7 +8,7 @@ echo 'Updating...'
 sudo apt update
 
 echo 'Installing all tools used...'
-sudo apt install fonts-font-awesome lxappearance rofi thunar zsh feh -y
+sudo apt install fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 echo 'Creating symbolic links (i3 & oh-my-zsh configs) and copying files (themes, fonts, icons)'
