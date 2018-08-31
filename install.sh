@@ -4,11 +4,12 @@ _curr=`pwd`
 
 echo "Current directory: $_curr"
 
+sudo add-apt-repository ppa:papirus/papirus
 echo 'Updating...'
 sudo apt update
 
 echo 'Installing all tools used...'
-sudo apt install fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton -y
+sudo apt install i3 fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton papirus-icon-theme papirus-folders -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 echo 'Creating symbolic links (i3 & oh-my-zsh configs) and copying files (themes, fonts, icons)'
@@ -19,11 +20,18 @@ sudo cp -a $_curr/.themes/. $HOME/.themes/
 sudo cp -a $_curr/.fonts/. $HOME/.fonts/
 sudo cp -a $_curr/.icons/. $HOME/.icons/
 sudo cp -a $_curr/.oh-my-zsh/. $HOME/.oh-my-zsh/
-sudo cp $_curr/wallpaper.jpg $HOME/Pictures/wallpaper.jpg
+sudp cp $_curr/.config/gtk-3.0/settings.ini $HOME/.config/gtk-3.0/settings.ini
+sudo cp $_curr/.config/gtk-4.0/settings.ini $HOME/.config/gtk-4.0/settings.ini
+sudo cp $_curr/.gtkrc-2.0 $HOME/.gtkrc-2.0
+sudo mkdir $HOME/Pictures/wallpapers
+sudo cp -a $_curr/wallpapers/* $HOME/Pictures/wallpapers/
+
+papirus-folders -C orange
 
 sudo ln -fs $_curr/cpanel /usr/bin/cpanel
 sudo chmod +x $_curr/cpanel
 
+lxappearance &
 
 echo 'If needed, remake font cache with:'
 echo -e 'fc-cache -fv\n'

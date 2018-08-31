@@ -180,27 +180,27 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 # class                 border  bground text    indicator child_border
-client.focused          #2F6657 #2F6657 #FFFFFF #44937E   #4FAA92
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.focused          #282C4F #282C4F #FFFFFF #AB00F4   #393656
+client.focused_inactive #333333 #515151 #FFFFFF #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
-client.urgent           #2F343A #A53737 #FFFFFF #A53737   #A53737
+client.urgent           #2F343A #903636 #FFFFFF #900000   #903636
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-bar {
+bar { 
   status_command i3status
   strip_workspace_numbers yes
-  colors {
-    background #0D1B17
+   colors {
+    background #1E1C2D
     statusline #FFFFFF
-    separator  #000000
+    separator  #1E1C2D
 
-    focused_workspace  #0D1B17 #0D1B17 #FFFFFF
-    active_workspace   #0D1B17 #0D1B17 #6A6A6A
-    inactive_workspace #0D1B17 #0D1B17 #4B4B4B
-    urgent_workspace   #A53737 #A53737 #FFFFFF
-    binding_mode       #A53737 #A53737 #FFFFFF
+    focused_workspace  #1E1C2D #1E1C2D #FFFFFF
+    active_workspace   #1E1C2D #1E1C2D #FFFFFF
+    inactive_workspace #1E1C2D #1E1C2D #888888
+    urgent_workspace   #1E1C2D #902929 #FFFFFF
+    binding_mode       #1E1C2D #902929 #FFFFFF
   }
 }
 
@@ -208,7 +208,7 @@ bar {
 bindsym $mod+shift+x exec i3lock
 
 #set wallpaper
-exec_always feh --bg-scale /home/eduardo/Pictures/wallpaper.jpg
+exec_always feh --bg-scale --randomize /home/eduardo/Pictures/wallpapers/*
 
 #synaptics settings
 #enable horizontal two finger scrolling
