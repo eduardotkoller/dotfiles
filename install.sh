@@ -11,6 +11,7 @@ sudo apt update
 echo 'Installing all tools used...'
 sudo apt install i3 fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton papirus-icon-theme papirus-folders -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sudo dpkg -i $_curr/MineTime.deb
 
 echo 'Creating symbolic links (i3 & oh-my-zsh configs) and copying files (themes, fonts, icons)'
 sudo ln -fs $_curr/.config/i3/config $HOME/.config/i3/config
@@ -25,6 +26,7 @@ sudo cp $_curr/.config/gtk-4.0/settings.ini $HOME/.config/gtk-4.0/settings.ini
 sudo cp $_curr/.gtkrc-2.0 $HOME/.gtkrc-2.0
 sudo mkdir $HOME/Pictures/wallpapers
 sudo cp -a $_curr/wallpapers/* $HOME/Pictures/wallpapers/
+sudo cp $_curr/Custom.rasi /usr/share/rofi/themes/Custom.rasi
 
 papirus-folders -C orange
 
