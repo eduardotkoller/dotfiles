@@ -210,6 +210,12 @@ for_window [class="^.*"] border normal
 #i3lock bind to lock screen
 bindsym $mod+shift+x exec i3lock
 
+# move the whole workspace to the next output
+bindsym $mod+m move workspace to output right
+# move the whole workspace to the next output
+bindsym $mod+n move workspace to output left
+
+
 #set wallpaper
 exec_always feh --bg-scale --randomize /home/eduardo/Pictures/wallpapers/*
 
@@ -217,8 +223,8 @@ exec_always feh --bg-scale --randomize /home/eduardo/Pictures/wallpapers/*
 #enable horizontal two finger scrolling
 exec_always synclient HorizTwoFingerScroll=1
 #enable natural scrolling
-exec_always synclient VertScrollDelta=-112
-exec_always synclient HorizScrollDelta=-112
+exec_always synclient VertScrollDelta=-400
+exec_always synclient HorizScrollDelta=-400
 #disable scrolling using edge of touchpad
 exec_always synclient VertEdgeScroll=0
 #enable middle click with 3 finger tap
@@ -226,6 +232,8 @@ exec_always synclient TapButton3=2
 #disable right click through clicking on the right bottom side of touchpad
 exec_always synclient RightButtonAreaLeft=0
 exec_always synclient RightButtonAreaTop=0
+exec_always synclient CoastingSpeed=5
+exec_always synclient CoastingFriction=35
 
 #change mouse sensitivity
 exec_always xinput --set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.75
@@ -241,6 +249,8 @@ exec gnome-terminal
 
 #starts calendar app
 exec minetime
+
+exec xrandr --auto && xrandr --output HDMI-1 --right-of LVDS-1 && xrandr --output HDMI-1 --mode 1280x720
 
 #create binds for media buttons (volup, voldown, play, pause, mute, next, previous)
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%

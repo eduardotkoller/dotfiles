@@ -20,13 +20,13 @@ order += "volume master"
 order += "battery 1"
 order += "load"
 order += "cpu_usage"
-order += "cpu_temperature 0"
-order += "cpu_temperature 1"
-order += "cpu_temperature 2"
+#order += "cpu_temperature 0"
+#order += "cpu_temperature 1"
+#order += "cpu_temperature 2"
 #order += "cpu_temperature 3"
 order += "disk /"
 order += "disk /media/media"
-order += "ethernet eth0"
+#order += "ethernet eth0"
 order += "wireless wlp8s0"
 order += "tztime local"
 #order += "ipv6"
@@ -80,7 +80,7 @@ disk "/media/media" {
 }
 
 wireless wlp8s0 {
-	format_up = " W: (%quality at %essid) %ip "
+	format_up = "  (%quality at %essid) %ip "
 	format_down = " ☡ WiFi "
 }
 
