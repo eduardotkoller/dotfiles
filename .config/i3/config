@@ -215,6 +215,7 @@ bindsym $mod+m move workspace to output right
 # move the whole workspace to the next output
 bindsym $mod+n move workspace to output left
 
+bindsym $mod+shift+s exec screenshot-clipboard
 
 #set wallpaper
 exec_always feh --bg-scale --randomize /home/eduardo/Pictures/wallpapers/*
@@ -243,6 +244,8 @@ exec --no-startup-id i3-msg 'workspace $workspace4; append_layout /home/eduardo/
 exec telegram
 exec whatsie
 exec slack
+
+exec xclip
 
 #starts a terminal
 exec gnome-terminal
