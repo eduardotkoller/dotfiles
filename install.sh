@@ -9,9 +9,8 @@ echo 'Updating...'
 sudo apt update
 
 echo 'Installing all tools used...'
-sudo apt install i3 fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton papirus-icon-theme papirus-folders -y
+sudo apt install i3 fonts-font-awesome lxappearance rofi thunar zsh feh xserver-xorg-input-synaptics compton papirus-icon-theme papirus-folders xclip maim -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-sudo dpkg -i $_curr/MineTime.deb
 
 echo 'Creating symbolic links (i3 & oh-my-zsh configs) and copying files (themes, fonts, icons)'
 sudo ln -fs $_curr/.config/i3/config $HOME/.config/i3/config
@@ -32,6 +31,9 @@ papirus-folders -C orange
 
 sudo ln -fs $_curr/cpanel /usr/bin/cpanel
 sudo chmod +x $_curr/cpanel
+
+sudo ln -fs $_curr/screenshot-clipboard /usr/bin/screenshot-clipboard
+sudo chmod +x $_curr/screenshot-clipboard
 
 lxappearance &
 

@@ -169,6 +169,10 @@ mode "resize" {
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Shift+Left resize shrink width 200 px or 200 ppt
+        bindsym Shift+Down resize grow height 200 px or 200 ppt
+        bindsym Shift+Up resize shrink height 200 px or 200 ppt
+        bindsym Shift+Right resize grow width 200 px or 200 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -250,9 +254,6 @@ exec xclip
 #starts a terminal
 exec gnome-terminal
 
-#starts calendar app
-exec minetime
-
 exec xrandr --auto && xrandr --output HDMI-1 --right-of LVDS-1 && xrandr --output HDMI-1 --mode 1280x720
 
 #create binds for media buttons (volup, voldown, play, pause, mute, next, previous)
@@ -267,5 +268,9 @@ bindsym XF86AudioPrev exec playerctl previous
 #exec compton to enable transparent background on windows
 exec compton -f -D 0
 
-#change view to workspace1
-exec --no-startup-id i3-msg workspace $workspace1
+#change view to workspace6
+exec_always --no-startup-id i3-msg workspace $workspace6
+
+#open trello
+exec_always google-chrome https://trello.com
+exec_always google-chrome https://calendar.google.com
