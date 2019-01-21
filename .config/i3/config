@@ -269,8 +269,8 @@ bindsym XF86AudioPrev exec playerctl previous
 exec compton -f -D 0
 
 #change view to workspace6
-exec_always --no-startup-id i3-msg workspace $workspace6
+exec --no-startup-id i3-msg workspace $workspace6
 
 #open trello
-exec_always google-chrome https://trello.com
-exec_always google-chrome https://calendar.google.com
+exec google-chrome https://trello.com
+exec google-chrome https://calendar.google.com
