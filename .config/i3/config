@@ -165,14 +165,14 @@ mode "resize" {
         bindsym ccedilla resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Shift+Left resize shrink width 200 px or 200 ppt
-        bindsym Shift+Down resize grow height 200 px or 200 ppt
-        bindsym Shift+Up resize shrink height 200 px or 200 ppt
-        bindsym Shift+Right resize grow width 200 px or 200 ppt
+        bindsym Left resize shrink width 10 px 
+        bindsym Down resize grow height 10 px
+        bindsym Up resize shrink height 10 px
+        bindsym Right resize grow width 10 px
+        bindsym Shift+Left resize shrink width 100 px
+        bindsym Shift+Down resize grow height 100 px
+        bindsym Shift+Up resize shrink height 100 px
+        bindsym Shift+Right resize grow width 100 px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -260,9 +260,9 @@ exec gnome-terminal
 exec xrandr --auto && xrandr --output HDMI-1 --right-of LVDS-1 && xrandr --output HDMI-1 --mode 1280x720
 
 #create binds for media buttons (volup, voldown, play, pause, mute, next, previous)
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%;"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%;"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl set-sink-mute 2 toggle;"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%; pactl set-sink-volume 1 +5%; pactl set-sink-volume 3 +5%; pactl set-sink-volume 4 +5%;"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 1 -5%; pactl set-sink-volume 2 -5%; pactl set-sink-volume 3 -5%; pactl set-sink-volume 4 -5%;"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl set-sink-mute 1 toggle; pactl set-sink-mute 2 toggle; pactl set-sink-mute 3 toggle; pactl set-sink-mute 4 toggle;"
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
