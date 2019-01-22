@@ -35,6 +35,10 @@ sudo chmod +x $_curr/cpanel
 sudo ln -fs $_curr/screenshot-clipboard /usr/bin/screenshot-clipboard
 sudo chmod +x $_curr/screenshot-clipboard
 
+sudo $_curr/build-install-polybar.sh
+
+sudo $_curr/build-install-i3gaps.sh
+
 lxappearance &
 
 echo 'If needed, remake font cache with:'

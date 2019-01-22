@@ -95,16 +95,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 #workspaces
-set $workspace1 "1: Web"
-set $workspace2 "2: Terminals"
-set $workspace3 "3: Coding"
-set $workspace4 "4: Messaging"
-set $workspace5 "5: Music"
-set $workspace6 "6: Organization"
-set $workspace7 "7:Workspace 7"
-set $workspace8 "8:Workspace 8"
-set $workspace9 "9:Workspace 9"
-set $workspaceTen "10:Workspace 10"
+set $workspace1 "1:"
+set $workspace2 "2:"
+set $workspace3 "3:"
+set $workspace4 "4:"
+set $workspace5 "5:"
+set $workspace6 "6:"
+set $workspace7 "7:"
+set $workspace8 "8:8"
+set $workspace9 "9:9"
+set $workspaceTen "10:10"
 
 assign [class="Chromium-browser"] $workspace1
 assign [class="Chrome-browser"] $workspace1
@@ -193,23 +193,26 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-bar { 
-  status_command i3status
-  strip_workspace_numbers yes
-   colors {
-    background #1E1C2D
-    statusline #FFFFFF
-    separator  #1E1C2D
+# bar { 
+#   status_command i3status
+#   strip_workspace_numbers yes
+#    colors {
+#     background #1E1C2D
+#     statusline #FFFFFF
+#     separator  #1E1C2D
 
-    focused_workspace  #1E1C2D #1E1C2D #FFFFFF
-    active_workspace   #1E1C2D #1E1C2D #FFFFFF
-    inactive_workspace #1E1C2D #1E1C2D #555555
-    urgent_workspace   #1E1C2D #902929 #FFFFFF
-    binding_mode       #1E1C2D #902929 #FFFFFF
-  }
-}
+#     focused_workspace  #1E1C2D #1E1C2D #FFFFFF
+#     active_workspace   #1E1C2D #1E1C2D #FFFFFF
+#     inactive_workspace #1E1C2D #1E1C2D #555555
+#     urgent_workspace   #1E1C2D #902929 #FFFFFF
+#     binding_mode       #1E1C2D #902929 #FFFFFF
+#   }
+# }
 
-for_window [class="^.*"] border normal
+for_window [class="^.*"] border pixel 1
+
+gaps inner 10
+gaps outer 0
 
 #i3lock bind to lock screen
 bindsym $mod+shift+x exec i3lock
@@ -223,6 +226,8 @@ bindsym $mod+shift+s exec screenshot-clipboard
 
 #set wallpaper
 exec_always feh --bg-scale --randomize /home/eduardo/Pictures/wallpapers/*
+
+exec_always ~/dotfiles/run-polybar.sh
 
 #synaptics settings
 #enable horizontal two finger scrolling
@@ -243,10 +248,8 @@ exec_always synclient CoastingFriction=35
 #change mouse sensitivity
 exec_always xinput --set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.75
 
-#apply layout for messaging apps and start them at login
-exec --no-startup-id i3-msg 'workspace $workspace4; append_layout /home/eduardo/dotfiles/.config/i3/messaging.json'
+#start messaging apps at login
 exec telegram
-exec whatsie
 exec slack
 
 exec xclip
@@ -257,9 +260,9 @@ exec gnome-terminal
 exec xrandr --auto && xrandr --output HDMI-1 --right-of LVDS-1 && xrandr --output HDMI-1 --mode 1280x720
 
 #create binds for media buttons (volup, voldown, play, pause, mute, next, previous)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5%; pactl set-sink-volume 2 +5%;"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5%; pactl set-sink-volume 2 -5%;"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle; pactl set-sink-mute 2 toggle;"
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
