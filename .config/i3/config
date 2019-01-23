@@ -215,7 +215,7 @@ gaps inner 10
 gaps outer 0
 
 #i3lock bind to lock screen
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec --no-startup-id betterlockscreen -l blur
 
 # move the whole workspace to the next output
 bindsym $mod+m move workspace to output right
@@ -248,14 +248,13 @@ exec_always synclient CoastingFriction=35
 #change mouse sensitivity
 exec_always xinput --set-prop "Logitech USB Optical Mouse" "libinput Accel Speed" -0.75
 
+exec_always --no-startup-id betterlockscreen -u ~/Pictures/wallpapers
+
 #start messaging apps at login
 exec telegram
 exec slack
 
 exec xclip
-
-#starts a terminal
-exec gnome-terminal
 
 exec xrandr --auto && xrandr --output HDMI-1 --right-of LVDS-1 && xrandr --output HDMI-1 --mode 1280x720
 
@@ -270,6 +269,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 #exec compton to enable transparent background on windows
 exec compton -f -D 0
+
+#starts a terminal
+exec i3-sensible-terminal
 
 #change view to workspace6
 exec --no-startup-id i3-msg workspace $workspace6

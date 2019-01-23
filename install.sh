@@ -35,15 +35,41 @@ sudo chmod +x $_curr/cpanel
 sudo ln -fs $_curr/screenshot-clipboard /usr/bin/screenshot-clipboard
 sudo chmod +x $_curr/screenshot-clipboard
 
-sudo $_curr/build-install-polybar.sh
+read -p "Build and install polybar (y/n)? " choice
+case "$choice" in 
+  y|Y ) sudo $_curr/build-install-polybar.sh;
+  sudo ln -fs $_curr/.config/polybar/config $HOME/.config/polybar/config;;
+  n|N ) echo "";;
+  * ) echo "invalid";;
+esac
 
-sudo $_curr/build-install-i3gaps.sh
+read -p "Build and install i3gaps (y/n)? " choice
+case "$choice" in 
+  y|Y ) sudo $_curr/build-install-i3gaps.sh;
+  sudo ln -fs $_curr/.config/i3/config $HOME/.config/i3/config;;
+  n|N ) echo "";;
+  * ) echo "invalid";;
+esac
 
-lxappearance &
+read -p "Build and install betterlockscreen (y/n)? " choice
+case "$choice" in 
+  y|Y ) sudo $_curr/build-install-betterlockscreen.sh;
+  betterlockscreen -u ~/Pictures/wallpapers;;
+  n|N ) echo "";;
+  * ) echo "invalid";;
+esac
+
+
+read -p "run lxappearance to customize look & feel (y/n)? " choice
+case "$choice" in 
+  y|Y ) lxappearance &;;
+  n|N ) echo "";;
+  * ) echo "invalid";;
+esac
 
 echo 'If needed, remake font cache with:'
 echo -e 'fc-cache -fv\n'
 echo 'Done! <3'
-echo 'Now set zsh as your default shell by running:'
+echo 'To set zsh as your default shell by running:'
 echo 'chsh -s $(which zsh)'
 echo 'Dont forget to change terminal font to any powerline font (Input Mono is installed)'
