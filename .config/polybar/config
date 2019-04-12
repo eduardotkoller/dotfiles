@@ -51,6 +51,7 @@ foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #f00
+enable-ipc = true
 
 border-size = 0
 border-left-size = 0
@@ -95,7 +96,7 @@ cursor-scroll = ns-resize
 type = custom/script
 exec = python3 -u ~/.config/polybar/gmail/launch.py --nosound
 tail = true
-click-left = xdg-open https://mail.google.com/mail/u/1/
+click-left = google-chrome https://mail.google.com/mail/u/1/
 
 [module/xwindow]
 type = internal/xwindow
@@ -361,6 +362,7 @@ format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.3}
 
 label-charging = " "
+label-discharging = " %percentage%%"
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}

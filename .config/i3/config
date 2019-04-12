@@ -231,7 +231,7 @@ bindsym $mod+shift+s exec screenshot-clipboard
 #set wallpaper
 exec_always wal -i /home/eduardo/Pictures/wallpapers/
 
-#exec_always ~/dotfiles/run-polybar.sh
+exec ~/dotfiles/run-polybar.sh
 
 #synaptics settings
 #enable horizontal two finger scrolling
