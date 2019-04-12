@@ -71,7 +71,7 @@ font-3 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center =
-modules-right = filesystem pulseaudio memory cpu wlan eth battery temperature date lock powermenu
+modules-right = gmail filesystem pulseaudio memory cpu wlan eth battery temperature date lock powermenu
 
 tray-position = right
 tray-padding = 2
@@ -90,6 +90,12 @@ wm-restack = i3
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/gmail]
+type = custom/script
+exec = python3 -u ~/.config/polybar/gmail/launch.py --nosound
+tail = true
+click-left = xdg-open https://mail.google.com/mail/u/1/
 
 [module/xwindow]
 type = internal/xwindow
