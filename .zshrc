@@ -104,10 +104,3 @@ if [ -f '/home/eduardo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/eduardo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/eduardo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /var/www/html/test-service/node_modules/tabtab/.completions/serverless.zsh ]] && . /var/www/html/test-service/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /var/www/html/test-service/node_modules/tabtab/.completions/sls.zsh ]] && . /var/www/html/test-service/node_modules/tabtab/.completions/sls.zsh

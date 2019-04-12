@@ -17,24 +17,31 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #09ed89
-secondary = #e60053
-alert = #bd2c40
+
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color2:#444}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color7:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+0 = ${xrdb:color0:#222}
+1 = ${xrdb:color1:#222}
+2 = ${xrdb:color2:#222}
+3 = ${xrdb:color3:#222}
+4 = ${xrdb:color4:#222}
+5 = ${xrdb:color5:#222}
+6 = ${xrdb:color6:#222}
+7 = ${xrdb:color7:#222}
 
 [bar/default]
 ;monitor = ${env:MONITOR:HDMI-1}
 ;bottom = true
 width = 100%
-height = 27
+height = 30
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 2.0
+radius = 0.0
 fixed-center = false
 
 strip-wsnumbers = true
@@ -45,9 +52,9 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 5
-border-left-size = 10
-border-right-size = 10
+border-size = 0
+border-left-size = 0
+border-right-size = 0
 border-bottom-size = 0
 border-color = #00000000
 
@@ -63,7 +70,7 @@ font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = 
+modules-center =
 modules-right = filesystem pulseaudio memory cpu wlan eth battery temperature date lock powermenu
 
 tray-position = right
@@ -190,9 +197,11 @@ label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
+card = acpi_video0
 
 format = <label> <bar>
 label = BL
+enable-scroll = true
 
 bar-width = 10
 bar-indicator = |
@@ -208,22 +217,23 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
-card = intel_backlight
+card = acpi_video0
+enable-scroll = true
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.1}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM "
+format-prefix = "M "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.4}
 label = %percentage_used%%
 
 [module/wlan]
@@ -232,7 +242,7 @@ interface = wlp8s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-underline = ${colors.0}
 label-connected = " %essid%"
 
 format-disconnected =
@@ -253,7 +263,7 @@ type = internal/network
 interface = enp2s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.3}
 format-connected-prefix = "E "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -276,14 +286,14 @@ time-alt = "  %H:%M:%S"
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+format-underline = ${colors.5}
 
 label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume = ♪ %percentage%%
 label-volume-foreground = ${root.foreground}
 
@@ -342,7 +352,7 @@ adapter = ACAD
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.3}
 
 label-charging = " "
 
@@ -353,20 +363,20 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = -
-ramp-capacity-1 = <
-ramp-capacity-2 = >
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = -
-animation-charging-1 = <
-animation-charging-2 = >
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = >
-animation-discharging-1 = <
-animation-discharging-2 = -
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -376,7 +386,7 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = ${colors.6}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
